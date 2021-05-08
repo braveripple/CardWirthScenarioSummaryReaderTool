@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>BraveRipple.CardWirthScenarioSummaryReaderTool</RootNamespace>
+    <AssemblyName>CardWirthScenarioSummaryReaderTool</AssemblyName>
+    <Authors>braveripple</Authors>
+    <Description>Class library that get CardWirth scenario information from a directory or archive file summary file.</Description>
+    <Copyright>© 2021 braveripple.</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\m-sui\Dropbox\github\CardWirthScenarioSummaryReaderTool\CardWirthScenarioSummaryReaderTool\CardWirthScenarioSummaryReaderTool.xml</DocumentationFile>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DocumentationFile>C:\Users\m-sui\Dropbox\github\CardWirthScenarioSummaryReaderTool\CardWirthScenarioSummaryReaderTool\CardWirthScenarioSummaryReaderTool.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Repositories\SummaryWsm\SummaryWsmBinaryRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSFTCompressionCab" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

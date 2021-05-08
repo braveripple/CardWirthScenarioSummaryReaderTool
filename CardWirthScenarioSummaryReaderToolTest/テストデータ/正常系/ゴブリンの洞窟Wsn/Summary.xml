@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<Summary scaledimage="true" dataVersion="4">
+<Property>
+<Name>ゴブリンの洞窟</Name>
+<ImagePath>Material/ゴブリンの洞窟(齋藤洋).bmp</ImagePath>
+<Author>齋藤 洋</Author>
+<Description>　町外れの洞窟にゴブリンと思しき妖魔が\n住み着いた。夜間に洞窟から抜け出しては\n近隣の畑や民家を荒らし、旅人を襲って荷\n物を奪うなど、大きな被害が出ている。\n\n　近隣に住む農民達は共同で金を出し合い\n冒険者を雇ってゴブリン退治を依頼するこ\nとを決定した…\n</Description>
+<Level max="3" min="1" />
+<RequiredCoupons number="0" />
+<StartAreaId>1</StartAreaId>
+<Tags />
+<Type skinname="Classic">MedievalFantasy</Type>
+</Property>
+<Flags>
+<Flag default="False">
+<Name>ENMY_ゴブリン</Name>
+<True>表示</True>
+<False>非表示</False>
+</Flag>
+<Flag default="False">
+<Name>ENMY_ホブゴブリン</Name>
+<True>表示</True>
+<False>非表示</False>
+</Flag>
+<Flag default="True">
+<Name>MENU_ゴブリン</Name>
+<True>表示</True>
+<False>非表示</False>
+</Flag>
+<Flag default="False">
+<Name>MENU_眠りゴブリン</Name>
+<True>表示</True>
+<False>非表示</False>
+</Flag>
+<Flag default="True">
+<Name>MENU_見張兵</Name>
+<True>表示</True>
+<False>非表示</False>
+</Flag>
+<Flag default="True">
+<Name>宝箱／表示</Name>
+<True>ＴＲＵＥ</True>
+<False>ＦＡＬＳＥ</False>
+</Flag>
+<Flag default="True">
+<Name>宝箱／識別</Name>
+<True>まだ</True>
+<False>終了</False>
+</Flag>
+<Flag default="False">
+<Name>敵に見つかった！</Name>
+<True>ＴＲＵＥ</True>
+<False>ＦＡＬＳＥ</False>
+</Flag>
+</Flags>
+<Steps>
+<Step default="0">
+<Name>ホブゴブリンの状態</Name>
+<Value>熟睡中</Value>
+<Value>お目覚め中</Value>
+<Value>御臨終</Value>
+<Value>Ｓｔｅｐ - 3</Value>
+<Value>Ｓｔｅｐ - 4</Value>
+<Value>Ｓｔｅｐ - 5</Value>
+<Value>Ｓｔｅｐ - 6</Value>
+<Value>Ｓｔｅｐ - 7</Value>
+<Value>Ｓｔｅｐ - 8</Value>
+<Value>Ｓｔｅｐ - 9</Value>
+</Step>
+<Step default="0">
+<Name>場面</Name>
+<Value>プロローグ</Value>
+<Value>掃討中</Value>
+<Value>エピローグ</Value>
+<Value />
+<Value />
+<Value />
+<Value />
+<Value />
+<Value />
+<Value />
+</Step>
+<Step default="0">
+<Name>見張兵の気持ち</Name>
+<Value>平和だな</Value>
+<Value>ん？</Value>
+<Value>行ってみよう</Value>
+<Value>Ｓｔｅｐ - 3</Value>
+<Value>Ｓｔｅｐ - 4</Value>
+<Value>Ｓｔｅｐ - 5</Value>
+<Value>Ｓｔｅｐ - 6</Value>
+<Value>Ｓｔｅｐ - 7</Value>
+<Value>Ｓｔｅｐ - 8</Value>
+<Value>Ｓｔｅｐ - 9</Value>
+</Step>
+</Steps>
+<Variants />
+<Labels />
+<EventTemplates />
+</Summary>
