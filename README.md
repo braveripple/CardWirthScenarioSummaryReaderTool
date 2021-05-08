@@ -1,0 +1,2 @@
+# CardWirthScenarioSummaryReaderTool
+CardWirthのSummaryファイルからシナリオ概要を取得するクラスライブラリ
