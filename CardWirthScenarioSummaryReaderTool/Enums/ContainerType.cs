@@ -17,14 +17,14 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Enums
         Directory,
 
         /// <summary>
-        /// ZIP
-        /// </summary>
-        ZipFile,
-
-        /// <summary>
         /// CAB
         /// </summary>
         CabFile,
+
+        /// <summary>
+        /// ZIP
+        /// </summary>
+        ZipFile,
 
         /// <summary>
         /// WSN

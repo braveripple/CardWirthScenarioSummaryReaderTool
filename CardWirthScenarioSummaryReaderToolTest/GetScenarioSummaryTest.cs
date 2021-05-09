@@ -1,5 +1,5 @@
 using BraveRipple.CardWirthScenarioSummaryReaderTool;
-using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary;
+using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities;
 using BraveRipple.CardWirthScenarioSummaryReaderTool.Enums;
 using BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions;
 using System.IO;
@@ -18,8 +18,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "ClassicŒ`®‚ÌƒVƒiƒŠƒI‚Ì‰ğÍ")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA", ContainerType.Directory)]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.zip", ContainerType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.cab", ContainerType.CabFile)]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.zip", ContainerType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.wsn", ContainerType.WsnFile)]
         public void TestClassic(string filename, ContainerType containerType)
         {
@@ -40,8 +40,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "NextŒ`®‚ÌƒVƒiƒŠƒI‚Ì‰ğÍ")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext", ContainerType.Directory)]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.zip", ContainerType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.cab", ContainerType.CabFile)]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.zip", ContainerType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.wsn", ContainerType.WsnFile)]
         public void TestNext(string filename, ContainerType containerType)
         {
@@ -63,8 +63,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "WSNŒ`®‚ÌƒVƒiƒŠƒI‚Ì‰ğÍ")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn", ContainerType.Directory)]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.zip", ContainerType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.cab", ContainerType.CabFile)]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.zip", ContainerType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.wsn", ContainerType.WsnFile)]
         public void TestWsn(string filename, ContainerType containerType)
         {
@@ -113,8 +113,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "Summaryƒtƒ@ƒCƒ‹‚ª‚È‚¢ê‡—áŠO‚ğ•Ô‚·ƒeƒXƒg")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty")]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty.cab")]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty.wsn")]
         public void TestSummaryFileNotFound(string filename)
         {
@@ -127,8 +127,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "Summary.wsmƒtƒ@ƒCƒ‹‚Ì’†g‚ª‹ó‚Ìê‡—áŠO‚ğ•Ô‚·ƒeƒXƒg")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid")]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.cab")]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.wsn")]
         public void TestSummaryWsmReadFailed(string filename)
         {
@@ -141,8 +141,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "Summary.xmlƒtƒ@ƒCƒ‹‚Ì’†g‚ª‹ó‚Ìê‡—áŠO‚ğ•Ô‚·ƒeƒXƒg")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid")]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.cab")]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.wsn")]
         public void TestSummaryXmlReadFailed(string filename)
         {

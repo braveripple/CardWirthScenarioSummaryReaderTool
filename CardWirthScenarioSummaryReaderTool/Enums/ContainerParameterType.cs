@@ -10,7 +10,7 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Enums
     public enum ContainerParameterType
     {
         /// <summary>
-        /// ディレクトリ、ZIP、CAB、WSNのいずれか
+        /// ディレクトリ、CAB、ZIP、WSNのいずれか
         /// </summary>
         Any = 0,
 
@@ -20,14 +20,14 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Enums
         Directory,
 
         /// <summary>
-        /// ZIP
-        /// </summary>
-        ZipFile,
-
-        /// <summary>
         /// CAB
         /// </summary>
         CabFile,
+
+        /// <summary>
+        /// ZIP
+        /// </summary>
+        ZipFile,
 
         /// <summary>
         /// WSN

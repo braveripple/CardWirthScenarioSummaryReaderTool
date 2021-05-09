@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary
+namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
 {
     /// <summary>
     /// Summaryファイルのファイルメタ情報クラス

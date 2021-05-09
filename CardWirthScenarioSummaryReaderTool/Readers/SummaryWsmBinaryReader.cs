@@ -1,4 +1,4 @@
-﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary;
+﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities;
 using System;
 using System.IO;
 using System.Text;

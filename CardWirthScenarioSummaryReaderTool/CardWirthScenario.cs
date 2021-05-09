@@ -1,5 +1,4 @@
-﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario;
-using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary;
+﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities;
 using BraveRipple.CardWirthScenarioSummaryReaderTool.Enums;
 using BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions;
 using BraveRipple.CardWirthScenarioSummaryReaderTool.Readers;
@@ -199,16 +198,19 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool
             if (summary is SummaryXml)
             {
                 return ScenarioType.Wsn;
-            } else if(summary is SummaryWsm)
+            }
+            else if (summary is SummaryWsm)
             {
                 if (summary.DataVersion >= 7)
                 {
                     return ScenarioType.Next;
-                } else
+                }
+                else
                 {
                     return ScenarioType.Classic;
                 }
-            } else
+            }
+            else
             {
                 return ScenarioType.None;
             }

@@ -1,4 +1,4 @@
-﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary;
+﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities;
 using Microsoft.Deployment.Compression.Cab;
 using System.IO;
 using System.Linq;

@@ -1,5 +1,5 @@
 ﻿
-namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary
+namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
 {
     /// <summary>
     /// ステップ情報

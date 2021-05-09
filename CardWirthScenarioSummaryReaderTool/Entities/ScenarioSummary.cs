@@ -1,9 +1,8 @@
-﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary;
-using BraveRipple.CardWirthScenarioSummaryReaderTool.Enums;
+﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Enums;
 using System;
 using System.IO;
 
-namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario
+namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
 {
     /// <summary>
     /// シナリオ概要
@@ -14,42 +13,42 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario
         /// シナリオ形式
         /// </summary>
         public ScenarioType ScenarioType { get; }
-        
+
         /// <summary>
         /// 対象レベル下限値
         /// </summary>
         public int LevelMin { get; }
-        
+
         /// <summary>
         /// 対象レベル上限値
         /// </summary>
         public int LevelMax { get; }
-        
+
         /// <summary>
         /// シナリオ名
         /// </summary>
         public string Name { get; }
-        
+
         /// <summary>
         /// 制作者
         /// </summary>
         public string Author { get; }
-        
+
         /// <summary>
         /// 解説
         /// </summary>
         public string Description { get; }
-        
+
         /// <summary>
         /// Summaryファイル情報
         /// </summary>
         public ISummary SummaryInfo { get; }
-        
+
         /// <summary>
         /// シナリオ格納形式
         /// </summary>
         public ContainerType ContainerType { get; }
-        
+
         /// <summary>
         /// シナリオ格納場所の更新日時
         /// </summary>

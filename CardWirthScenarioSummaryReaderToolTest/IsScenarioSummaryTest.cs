@@ -21,16 +21,16 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "ƒVƒiƒŠƒI‚Ì”»’è")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA", ScenarioParameterType.Classic, ContainerParameterType.Directory)]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.zip", ScenarioParameterType.Classic, ContainerParameterType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.cab", ScenarioParameterType.Classic, ContainerParameterType.CabFile)]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.zip", ScenarioParameterType.Classic, ContainerParameterType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.wsn", ScenarioParameterType.Classic, ContainerParameterType.WsnFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext", ScenarioParameterType.Next, ContainerParameterType.Directory)]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.zip", ScenarioParameterType.Next, ContainerParameterType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.cab", ScenarioParameterType.Next, ContainerParameterType.CabFile)]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.zip", ScenarioParameterType.Next, ContainerParameterType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.wsn", ScenarioParameterType.Next, ContainerParameterType.WsnFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn", ScenarioParameterType.Wsn, ContainerParameterType.Directory)]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.zip", ScenarioParameterType.Wsn, ContainerParameterType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.cab", ScenarioParameterType.Wsn, ContainerParameterType.CabFile)]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.zip", ScenarioParameterType.Wsn, ContainerParameterType.ZipFile)]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.wsn", ScenarioParameterType.Wsn, ContainerParameterType.WsnFile)]
         public void IsScenarioTest(string path, ScenarioParameterType scenarioParameterType, ContainerParameterType containerParameterType)
         {
@@ -44,8 +44,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "ClassicŒ`®ƒVƒiƒŠƒI‚Ì”»’è")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA")]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.cab")]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA.wsn")]
         public void IsClassicScenarioTest(string path)
         {
@@ -63,8 +63,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "NEXTŒ`®ƒVƒiƒŠƒI‚Ì”»’è")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext")]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.cab")]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext.wsn")]
         public void IsNextScenarioTest(string path)
         {
@@ -82,8 +82,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
 
         [Theory(DisplayName = "WSNŒ`®ƒVƒiƒŠƒI‚Ì”»’è")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn")]
-        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.cab")]
+        [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.zip")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.wsn")]
         public void IsWsnScenarioTest(string path)
         {
@@ -103,8 +103,9 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒA")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒANext")]
         [InlineData(@"ƒSƒuƒŠƒ“‚Ì“´ŒAWsn")]
-        public void IsDirectoryScenarioTest(string path) {
-            
+        public void IsDirectoryScenarioTest(string path)
+        {
+
             var fullName = Path.GetFullPath(Path.Combine(TestDirPath, "³íŒn/", path));
 
             Assert.True(CardWirthScenario.IsScenarioSummary(fullName, ScenarioParameterType.Any, ContainerParameterType.Directory));
@@ -112,8 +113,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ScenarioParameterType.Any, ContainerParameterType.CabFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ScenarioParameterType.Any, ContainerParameterType.WsnFile));
             Assert.True(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.Directory));
-            Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.ZipFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.CabFile));
+            Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.ZipFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.WsnFile));
 
         }
@@ -132,8 +133,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ScenarioParameterType.Any, ContainerParameterType.CabFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ScenarioParameterType.Any, ContainerParameterType.WsnFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.Directory));
-            Assert.True(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.ZipFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.CabFile));
+            Assert.True(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.ZipFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.WsnFile));
 
         }
@@ -152,8 +153,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
             Assert.True(CardWirthScenario.IsScenarioSummary(fullName, ScenarioParameterType.Any, ContainerParameterType.CabFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ScenarioParameterType.Any, ContainerParameterType.WsnFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.Directory));
-            Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.ZipFile));
             Assert.True(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.CabFile));
+            Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.ZipFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.WsnFile));
 
         }
@@ -172,8 +173,8 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ScenarioParameterType.Any, ContainerParameterType.CabFile));
             Assert.True(CardWirthScenario.IsScenarioSummary(fullName, ScenarioParameterType.Any, ContainerParameterType.WsnFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.Directory));
-            Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.ZipFile));
             Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.CabFile));
+            Assert.False(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.ZipFile));
             Assert.True(CardWirthScenario.IsScenarioSummary(fullName, ContainerParameterType.WsnFile));
 
         }
@@ -195,16 +196,16 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
         [InlineData(@"ˆÙíŒn/UnsupportedContainerTypeException/ƒSƒuƒŠƒ“‚Ì“´ŒAWsn")]
         [InlineData(@"ˆÙíŒn/UnsupportedContainerTypeException/ƒSƒuƒŠƒ“‚Ì“´ŒAWsn.xxx")]
         [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryFileNotFound/ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty")]
-        [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryFileNotFound/ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty.zip")]
         [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryFileNotFound/ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty.cab")]
+        [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryFileNotFound/ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty.zip")]
         [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryFileNotFound/ƒSƒuƒŠƒ“‚Ì“´ŒAEmpty.wsn")]
         [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryWsmInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid")]
-        [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryWsmInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.zip")]
         [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryWsmInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.cab")]
+        [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryWsmInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.zip")]
         [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryWsmInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.wsn")]
         [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryXmlInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid")]
-        [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryXmlInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.zip")]
         [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryXmlInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.cab")]
+        [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryXmlInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.zip")]
         [InlineData(@"ˆÙíŒn/InvalidScenarioException/SummaryXmlInvalid/ƒSƒuƒŠƒ“‚Ì“´ŒAInvalid.wsn")]
         public void IsNotScenarioTest2(string path)
         {

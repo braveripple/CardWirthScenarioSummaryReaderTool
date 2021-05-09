@@ -1,7 +1,6 @@
-﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Enums;
-using System;
+﻿using System;
 
-namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary
+namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
 {
     /// <summary>
     /// Summary.wsmの解析情報

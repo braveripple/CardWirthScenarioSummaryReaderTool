@@ -1,7 +1,7 @@
 ﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Enums;
 using System;
 
-namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Scenario
+namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
 {
     /// <summary>
     /// シナリオ格納場所（ディレクトリまたはアーカイブ）のメタ情報クラス

@@ -20,7 +20,7 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Enums
         Classic,
 
         /// <summary>
-        /// NEXT景色
+        /// NEXT形式
         /// </summary>
         Next,
 

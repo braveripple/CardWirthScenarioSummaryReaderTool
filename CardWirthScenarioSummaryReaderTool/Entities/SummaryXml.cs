@@ -1,7 +1,6 @@
-﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Enums;
-using System;
+﻿using System;
 
-namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary
+namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
 {
     /// <summary>
     /// Summary.xmlの解析情報
@@ -12,7 +11,7 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities.Summary
         /// シナリオ名
         /// </summary>
         public string Name { get; }
-        
+
         /// <summary>
         /// 貼り紙の画像ファイルの相対パス
         /// </summary>
