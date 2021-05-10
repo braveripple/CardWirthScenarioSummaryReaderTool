@@ -182,13 +182,13 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool
         private static ScenarioSummary ConvertToScenarioSummary(ISummary summary, ScenarioMetaData scenarioMetaData)
         {
             return new ScenarioSummary(GetScenarioType(summary),
+                                       scenarioMetaData.ContainerType,
                                        summary.LevelMin,
                                        summary.LevelMax,
                                        summary.Name,
                                        summary.Author,
                                        summary.Description,
                                        summary,
-                                       scenarioMetaData.ContainerType,
                                        scenarioMetaData.LastWriteTime,
                                        scenarioMetaData.FullName);
         }

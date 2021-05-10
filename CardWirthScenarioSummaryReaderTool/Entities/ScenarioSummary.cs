@@ -15,6 +15,11 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
         public ScenarioType ScenarioType { get; }
 
         /// <summary>
+        /// シナリオ格納形式
+        /// </summary>
+        public ContainerType ContainerType { get; }
+
+        /// <summary>
         /// 対象レベル下限値
         /// </summary>
         public int LevelMin { get; }
@@ -45,11 +50,6 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
         public ISummary SummaryInfo { get; }
 
         /// <summary>
-        /// シナリオ格納形式
-        /// </summary>
-        public ContainerType ContainerType { get; }
-
-        /// <summary>
         /// シナリオ格納場所の更新日時
         /// </summary>
         public DateTime LastWriteTime { get; }
@@ -63,34 +63,34 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
         /// コンストラクタ
         /// </summary>
         /// <param name="scenarioType"></param>
+        /// <param name="containerType"></param>
         /// <param name="levelMin"></param>
         /// <param name="levelMax"></param>
         /// <param name="name"></param>
         /// <param name="author"></param>
         /// <param name="description"></param>
         /// <param name="summaryInfo"></param>
-        /// <param name="containerType"></param>
         /// <param name="lastWriteTime"></param>
         /// <param name="fullName"></param>
         public ScenarioSummary(ScenarioType scenarioType,
+                               ContainerType containerType,
                                int levelMin,
                                int levelMax,
                                string name,
                                string author,
                                string description,
                                ISummary summaryInfo,
-                               ContainerType containerType,
                                DateTime lastWriteTime,
                                string fullName)
         {
             ScenarioType = scenarioType;
+            ContainerType = containerType;
             LevelMin = levelMin;
             LevelMax = levelMax;
             Name = name;
             Author = author;
             Description = description;
             SummaryInfo = summaryInfo;
-            ContainerType = containerType;
             LastWriteTime = lastWriteTime;
             FullName = fullName;
         }
