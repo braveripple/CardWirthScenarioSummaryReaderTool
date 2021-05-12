@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="MSFTCompressionCab" Version="1.0.0" />
+    <PackageReference Include="SharpZipLib" Version="1.3.2" />
   </ItemGroup>
 
   <ItemGroup>
