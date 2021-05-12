@@ -1,7 +1,8 @@
 ﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities;
+using BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
+using ICSharpCode.SharpZipLib.Zip;
 using System.Linq;
 
 namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryXml
@@ -9,53 +10,54 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryXml
     internal class SummaryXmlBinaryZip : ISummaryXmlBinaryRepository
     {
 
-        public FileInfo ScenarioZipFile { get; set; }
+        private readonly FileInfo _scenarioZipFile;
 
         public SummaryXmlBinaryZip(FileInfo scenarioZipFile)
         {
-            ScenarioZipFile = scenarioZipFile;
+            _scenarioZipFile = scenarioZipFile;
         }
 
         public SummaryXmlBinary Get()
         {
             return GetSummaryXmlBinary();
         }
+
         protected SummaryXmlBinary GetSummaryXmlBinary()
         {
-            using (ZipArchive scenarioArchive = ZipFile.OpenRead(ScenarioZipFile.FullName))
+            using (var scenarioArchive = new ZipFile(new FileStream(_scenarioZipFile.FullName, FileMode.Open, FileAccess.Read)))
             {
-                IEnumerable<ZipArchiveEntry> summaryXmlFiles = GetSummaryXmlFiles(scenarioArchive);
+                var summaryXmlFiles = new List<ZipEntry>();
+                foreach (ZipEntry ze in scenarioArchive)
+                {
+                    if (ze.IsDirectory) continue;
+                    if (ze.Name.EndsWith("Summary.xml"))
+                    {
+                        summaryXmlFiles.Add(ze);
+                    }
+                }
                 if (!summaryXmlFiles.Any())
                 {
                     throw new FileNotFoundException("Summary.xml file not found");
                 }
-                ZipArchiveEntry summaryFile = summaryXmlFiles.ElementAt(0);
-                if (summaryFile.FullName.Split('/').Length >= 2)
+                var summaryFile = summaryXmlFiles.ElementAt(0);
+                if (summaryFile.IsCrypted)
                 {
-                    // TODO:アーカイブの中のSummaryファイルの階層が深すぎる場合、何か対応を入れるか考え中
+                    throw new InvalidScenarioException($"Because ‘{_scenarioZipFile.FullName}’ is a zip file with a password, it cannot be parsed.");
                 }
-                return new SummaryXmlBinary(GetXmlText(summaryFile), GetSummaryMetaData(summaryFile));
+
+                using (var stream = scenarioArchive.GetInputStream(summaryFile))
+                {
+                    using (var sr = new StreamReader(stream))
+                    {
+                        return new SummaryXmlBinary(sr.ReadToEnd(), GetSummaryMetaData(summaryFile));
+                    }
+                }
             }
-        }
-        private static IEnumerable<ZipArchiveEntry> GetSummaryXmlFiles(ZipArchive scenarioArchive)
-        {
-            return scenarioArchive.Entries
-                .Where(e => e.Name.Equals("Summary.xml"))
-                .OrderBy(e => e.FullName);
         }
 
-        private static string GetXmlText(ZipArchiveEntry summaryFile)
+        private static SummaryMetaData GetSummaryMetaData(ZipEntry summaryFile)
         {
-            using (Stream stream = summaryFile.Open())
-            {
-                StreamReader streamReader = new StreamReader(stream);
-                string xmlText = streamReader.ReadToEnd();
-                return xmlText;
-            }
-        }
-        private static SummaryMetaData GetSummaryMetaData(ZipArchiveEntry summaryFile)
-        {
-            return new SummaryMetaData(summaryFile.LastWriteTime.DateTime, summaryFile.Length);
+            return new SummaryMetaData(summaryFile.DateTime, summaryFile.Size);
         }
     }
 

@@ -1,7 +1,8 @@
 ﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities;
+using BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions;
+using ICSharpCode.SharpZipLib.Zip;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 
 namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryWsm
@@ -22,46 +23,42 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryWsm
         }
         protected SummaryWsmBinary GetSummaryWsmBinary()
         {
-            using (var scenarioArchive = ZipFile.OpenRead(_scenarioZipFile.FullName))
+            using (var scenarioArchive = new ZipFile(new FileStream(_scenarioZipFile.FullName, FileMode.Open, FileAccess.Read)))
             {
-                var summaryWsmFiles = GetSummaryWsmFiles(scenarioArchive);
+                var summaryWsmFiles = new List<ZipEntry>();
+                foreach (ZipEntry ze in scenarioArchive)
+                {
+                    if (ze.IsDirectory) continue;
+                    if (ze.Name.EndsWith("Summary.wsm"))
+                    {
+                        summaryWsmFiles.Add(ze);
+                    }
+                }
                 if (!summaryWsmFiles.Any())
                 {
                     throw new FileNotFoundException("Summary.wsm file not found");
                 }
                 var summaryFile = summaryWsmFiles.ElementAt(0);
-                if (summaryFile.FullName.Split('/').Length >= 2)
+                if (summaryFile.IsCrypted)
                 {
-                    // TODO:アーカイブの中のSummaryファイルの階層が深すぎる場合、何か対応を入れるか考え中
+                    throw new InvalidScenarioException($"Because ‘{_scenarioZipFile.FullName}’ is a zip file with a password, it cannot be parsed.");
                 }
-                return new SummaryWsmBinary(GetBinaryData(summaryFile), GetSummaryMetaData(summaryFile));
-            }
-        }
 
-        private IEnumerable<ZipArchiveEntry> GetSummaryWsmFiles(ZipArchive scenarioArchive)
-        {
-            return scenarioArchive.Entries
-                .Where(e => e.Name.Equals("Summary.wsm"))
-                .OrderBy(e => e.FullName);
-        }
-
-        private static byte[] GetBinaryData(ZipArchiveEntry scenarioArcive)
-        {
-            using (var stream = scenarioArcive.Open())
-            {
-                using (var memoryStream = new MemoryStream())
+                using (var stream = scenarioArchive.GetInputStream(summaryFile))
                 {
-                    stream.CopyTo(memoryStream);
-                    var data = memoryStream.ToArray();
-                    return data;
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        stream.CopyTo(memoryStream);
+                        return new SummaryWsmBinary(memoryStream.ToArray(), GetSummaryMetaData(summaryFile));
+                    }
                 }
             }
         }
-        private static SummaryMetaData GetSummaryMetaData(ZipArchiveEntry summaryFile)
-        {
-            return new SummaryMetaData(summaryFile.LastWriteTime.DateTime, summaryFile.Length);
-        }
 
+        private static SummaryMetaData GetSummaryMetaData(ZipEntry summaryFile)
+        {
+            return new SummaryMetaData(summaryFile.DateTime, summaryFile.Size);
+        }
 
     }
 
