@@ -152,5 +152,17 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderToolTest
                 CardWirthScenario.GetScenarioSummary(fullName);
             });
         }
+
+        [Theory(DisplayName = "パスワード付きZIPは例外を返すテスト")]
+        [InlineData(@"ゴブリンの洞窟Password.zip")]
+        [InlineData(@"ゴブリンの洞窟Password.wsn")]
+        public void TestPasswordedZipFailed(string filename)
+        {
+            var fullName = Path.GetFullPath(Path.Combine(TestDirPath, "異常系/InvalidScenarioException/PasswordedZip/", filename));
+            var ex = Assert.Throws<InvalidScenarioException>(() =>
+            {
+                CardWirthScenario.GetScenarioSummary(fullName);
+            });
+        }
     }
 }
