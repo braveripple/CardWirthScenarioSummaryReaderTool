@@ -45,9 +45,10 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryXml
         {
             using (var stream = summaryFile.OpenRead())
             {
-                var sr = new StreamReader(stream);
-                var xmlText = sr.ReadToEnd();
-                return xmlText;
+                using (var sr = new StreamReader(stream))
+                {
+                    return sr.ReadToEnd();
+                }
             }
         }
 
