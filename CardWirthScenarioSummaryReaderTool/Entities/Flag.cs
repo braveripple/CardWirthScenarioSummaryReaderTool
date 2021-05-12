@@ -41,5 +41,13 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
             FalseValue = falseValue;
         }
 
+        /// <summary>
+        /// フラグ名を文字列として返します。
+        /// </summary>
+        /// <returns>フラグ名の文字列</returns>
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

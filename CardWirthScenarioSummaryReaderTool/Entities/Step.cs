@@ -33,6 +33,15 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Entities
             DefaultValue = defaultValue;
             Values = values;
         }
+
+        /// <summary>
+        /// ステップ名を文字列として返します。
+        /// </summary>
+        /// <returns>ステップ名の文字列</returns>
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
 }
