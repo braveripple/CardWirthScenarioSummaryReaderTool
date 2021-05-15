@@ -1,8 +1,8 @@
 ﻿using BraveRipple.CardWirthScenarioSummaryReaderTool.Entities;
 using BraveRipple.CardWirthScenarioSummaryReaderTool.Exceptions;
+using ICSharpCode.SharpZipLib.Zip;
 using System.Collections.Generic;
 using System.IO;
-using ICSharpCode.SharpZipLib.Zip;
 using System.Linq;
 
 namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryXml

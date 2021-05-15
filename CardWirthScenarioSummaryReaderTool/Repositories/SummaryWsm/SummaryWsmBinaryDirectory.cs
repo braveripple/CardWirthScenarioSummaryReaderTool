@@ -24,6 +24,7 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryWsm
             {
                 throw new FileNotFoundException("Summary.wsm file not found");
             }
+
             var summaryFile = files[0];
 
             return new SummaryWsmBinary(GetBinaryData(summaryFile), GetSummaryMetaData(summaryFile));

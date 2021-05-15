@@ -31,10 +31,7 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryWsm
             }
 
             var summaryFile = summaryWsmFiles.ElementAt(0);
-            if (summaryFile.FullName.Split('/').Length >= 2)
-            {
-                // TODO:アーカイブの中のSummaryファイルの階層が深すぎる場合、何か対応を入れるか考え中
-            }
+
             return new SummaryWsmBinary(GetBinaryData(summaryFile), GetSummaryMetaData(summaryFile));
         }
         private static byte[] GetBinaryData(CabFileInfo summaryFile)

@@ -28,11 +28,9 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryXml
             {
                 throw new FileNotFoundException("Summary.xml file not found");
             }
+
             var summaryFile = summaryXmlFiles.ElementAt(0);
-            if (summaryFile.FullName.Split('/').Length >= 2)
-            {
-                // TODO:アーカイブの中のSummaryファイルの階層が深すぎる場合、何か対応を入れるか考え中
-            }
+
             return new SummaryXmlBinary(GetXmlText(summaryFile), GetSummaryMetaData(summaryFile));
         }
         private static IEnumerable<CabFileInfo> GetSummaryXmlFiles(CabInfo cabInfo)

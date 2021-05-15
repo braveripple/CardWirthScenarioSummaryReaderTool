@@ -24,7 +24,9 @@ namespace BraveRipple.CardWirthScenarioSummaryReaderTool.Repositories.SummaryXml
             {
                 throw new FileNotFoundException("Summary.xml file not found");
             }
+
             var summaryFile = files[0];
+
             return new SummaryXmlBinary(GetXmlText(summaryFile), GetSummaryMetaData(summaryFile));
 
         }
