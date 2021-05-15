@@ -15,6 +15,10 @@ CardWirth非公式のツールです。
 
 ## 使い方
 
+* CardWirthScenario.GetScenarioSummary
+  * see [GetScenarioSummaryTest.cs](./CardWirthScenarioSummaryReaderToolTest/GetScenarioSummaryTest.cs)
+* CardWirthScenario.IsScenarioSummary
+  * see [IsScenarioSummaryTest.cs](./CardWirthScenarioSummaryReaderToolTest/IsScenarioSummaryTest.cs)
 
 ## 作成者
 
